@@ -1,0 +1,69 @@
+request: Get http://localhost:8000/api/academia/proferssors/
+
+response:
+[
+    {
+        "id": 1,
+        "nume": "Ana",
+        "prenume": "Maria",
+        "email": "user@example.com",
+        "grad_didactic": "asistent",
+        "tip_asociere": "titular",
+        "afiliere": "Bit"
+    },
+    {
+        "id": 35,
+        "nume": "string",
+        "prenume": "string",
+        "email": "user1@example.com",
+        "grad_didactic": "asistent",
+        "tip_asociere": "titular",
+        "afiliere": "string"
+    }
+]
+
+status: 200 OK
+
+request: POST http://localhost:8000/api/academia/students
+
+Body:
+{
+  "nume": "Petrescu",
+  "prenume": "Andrei",
+  "email": "andrei@example.com",
+  "ciclu_studii": "master",
+  "an_studii": 2,
+  "grupa": 1409
+}
+
+response:
+{
+    "id": 6,
+    "nume": "Petrescu",
+    "prenume": "Andrei",
+    "email": "andrei@example.com",
+    "ciclu_studii": "master",
+    "an_studii": 2,
+    "grupa": 1409
+}
+
+Status: 200 Ok
+
+request: GET http://localhost:8000/api/academia/students/1
+
+response:
+{
+    "id": 1,
+    "nume": "string",
+    "prenume": "string",
+    "email": "user@example.com",
+    "ciclu_studii": "licenta",
+    "an_studii": 0,
+    "grupa": 0
+}
+
+Status: 200 Ok
+
+
+
+

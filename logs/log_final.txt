@@ -1,0 +1,270 @@
+ AUtentificare admin
+ INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+ INFO:sqlalchemy.engine.Engine:SELECT users.uid AS users_uid, users.username AS users_username, users.password AS users_password, users.role AS users_role 
+ FROM users                                                                                                                                                                                           
+ WHERE users.username = %(username_1)s                                                                                                                                                                
+  LIMIT %(param_1)s                                                                                                                                                                                   
+ INFO:sqlalchemy.engine.Engine:[cached since 4.364e+04s ago] {'username_1': 'admin', 'param_1': 1}                                                                                                    
+                                                                                                                                                     
+ INFO:sqlalchemy.engine.Engine:SELECT users.uid AS users_uid, users.username AS users_username, users.password AS users_password, users.role AS users_role 
+ FROM users 
+ WHERE users.username = %(username_1)s                                                                                                                                                                
+  LIMIT %(param_1)s                                                                                                                                                                                   
+ INFO:sqlalchemy.engine.Engine:[cached since 4.364e+04s ago] {'username_1': 'admin', 'param_1': 1}                                                                                                    
+
+ INFO:     192.168.65.1:28040 - "POST /token HTTP/1.1" 200 OK
+
+
+Afisare Studenti
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)                                                                                                                                                           
+INFO:sqlalchemy.engine.Engine:SELECT "Discipline_De_Studiu".cod AS "Discipline_De_Studiu_cod", "Discipline_De_Studiu".id_titular AS "Discipline_De_Studiu_id_titular", "Discipline_De_Studiu".nume_disciplina AS "Discipline_De_Studiu_nume_disciplina", "Discipline_De_Studiu".an_studiu AS "Discipline_De_Studiu_an_studiu", "Discipline_De_Studiu".tip_disciplina AS "Discipline_De_Studiu_tip_disciplina", "Discipline_De_Studiu".categorie_disciplina AS "Discipline_De_Studiu_categorie_disciplina", "Discipline_De_Studiu".tip_examinare AS "Discipline_De_Studiu_tip_examinare"
+FROM "Discipline_De_Studiu" 
+LIMIT %(param_1)s OFFSET %(param_2)s                                                                                                                                                                    
+INFO:sqlalchemy.engine.Engine:[cached since 0.04586s ago] {'param_1': 5, 'param_2': 0}                                                                                                                   
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoiYWRtaW46MSIsImV4cCI6MTczNzMzMTI4NywianRpIjoiYzJlZTAyMmQtMTFjOS00OGY3LWEyYzAtZDUwYjUxMDYyMmYyIiwicm9sZSI6ImFkbWluIn0.-LbZjFSCUm7l_7r7U6wDCWqS9w3qzGVqCrQTDti9R3M                                                                                                                                                                                 
+INFO:     192.168.65.1:25228 - "GET /api/academia/lectures/?skip=0&limit=5 HTTP/1.1" 200 OK
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)                                                                                                                                                           
+INFO:sqlalchemy.engine.Engine:SELECT "Studenti".id AS "Studenti_id", "Studenti".nume AS "Studenti_nume", "Studenti".prenume AS "Studenti_prenume", "Studenti".email AS "Studenti_email", "Studenti".ciclu_studii AS "Studenti_ciclu_studii", "Studenti".an_studii AS "Studenti_an_studii", "Studenti".grupa AS "Studenti_grupa"                                                                                                 
+FROM "Studenti" 
+LIMIT %(param_1)s OFFSET %(param_2)s                                                                                                                                                                    
+INFO:sqlalchemy.engine.Engine:[cached since 14.45s ago] {'param_1': 5, 'param_2': 0}                                                                                                                     
+INFO:sqlalchemy.engine.Engine:ROLLBACK                                                                                                                                                                   
+INFO:     192.168.65.1:28350 - "GET /api/academia/all_students/?skip=0&limit=5 HTTP/1.1" 200 OK
+
+Update Student
+
+| INFO:     192.168.65.1:18259 - "OPTIONS /api/academia/students/6 HTTP/1.1" 200 OK                                                                                                                        
+| INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+| INFO:sqlalchemy.engine.Engine:SELECT "Studenti".id AS "Studenti_id", "Studenti".nume AS "Studenti_nume", "Studenti".prenume AS "Studenti_prenume", "Studenti".email AS "Studenti_email", "Studenti".ciclu_studii AS "Studenti_ciclu_studii", "Studenti".an_studii AS "Studenti_an_studii", "Studenti".grupa AS "Studenti_grupa"                                                                                                 
+| FROM "Studenti" 
+| WHERE "Studenti".id = %(id_1)s                                                                                                                                                                           
+|  LIMIT %(param_1)s                                                                                                                                                                                       
+| INFO:sqlalchemy.engine.Engine:[generated in 0.00027s] {'id_1': 6, 'param_1': 1}
+| INFO:sqlalchemy.engine.Engine:SELECT "Studenti".id AS "Studenti_id", "Studenti".nume AS "Studenti_nume", "Studenti".prenume AS "Studenti_prenume", "Studenti".email AS "Studenti_email", "Studenti".ciclu_studii AS "Studenti_ciclu_studii", "Studenti".an_studii AS "Studenti_an_studii", "Studenti".grupa AS "Studenti_grupa"                                                                                                 
+| FROM "Studenti" 
+| WHERE "Studenti".email = %(email_1)s                                                                                                                                                                     
+|  LIMIT %(param_1)s
+| INFO:sqlalchemy.engine.Engine:[generated in 0.00025s] {'email_1': 'student1@exemple.com', 'param_1': 1}                                                                                                  
+| INFO:sqlalchemy.engine.Engine:SELECT "Studenti".id AS "Studenti_id", "Studenti".nume AS "Studenti_nume", "Studenti".prenume AS "Studenti_prenume", "Studenti".email AS "Studenti_email", "Studenti".ciclu_studii AS "Studenti_ciclu_studii", "Studenti".an_studii AS "Studenti_an_studii", "Studenti".grupa AS "Studenti_grupa"                                                                                                 
+| FROM "Studenti" 
+| WHERE "Studenti".id = %(id_1)s                                                                                                                                                                           
+|  LIMIT %(param_1)s                                                                                                                                                                                       
+| INFO:sqlalchemy.engine.Engine:[cached since 0.009512s ago] {'id_1': 6, 'param_1': 1}
+| INFO:sqlalchemy.engine.Engine:UPDATE "Studenti" SET grupa=%(grupa)s WHERE "Studenti".id = %(Studenti_id)s                                                                                                
+| INFO:sqlalchemy.engine.Engine:[generated in 0.00022s] {'grupa': 1103, 'Studenti_id': 6}                                                                                                                  
+| INFO:sqlalchemy.engine.Engine:COMMIT                                                                                                                                                                     
+| INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+| INFO:sqlalchemy.engine.Engine:SELECT "Studenti".id, "Studenti".nume, "Studenti".prenume, "Studenti".email, "Studenti".ciclu_studii, "Studenti".an_studii, "Studenti".grupa                               
+| FROM "Studenti"                                                                                                                                                                                          
+| WHERE "Studenti".id = %(pk_1)s                                                                                                                                                                           
+| INFO:sqlalchemy.engine.Engine:[generated in 0.00020s] {'pk_1': 6}                                                                                                                                        
+| INFO:sqlalchemy.engine.Engine:ROLLBACK
+| Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoiYWRtaW46MSIsImV4cCI6MTczNzMzMTI4NywianRpIjoiYzJlZTAyMmQtMTFjOS00OGY3LWEyYzAtZDUwYjUxMDYyMmYyIiwicm9sZSI6ImFkbWluIn0.-LbZjFSCUm7l_7r7U6wDCWqS9w3qzGVqCrQTDti9R3M                                                                                                                                                                                 
+| INFO:     192.168.65.1:18259 - "PUT /api/academia/students/6 HTTP/1.1" 200 OK
+| INFO:     192.168.65.1:18259 - "OPTIONS /api/academia/all_students?skip=0&limit=5 HTTP/1.1" 200 OK                                                                                                       
+| Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoiYWRtaW46MSIsImV4cCI6MTczNzMzMTI4NywianRpIjoiYzJlZTAyMmQtMTFjOS00OGY3LWEyYzAtZDUwYjUxMDYyMmYyIiwicm9sZSI6ImFkbWluIn0.-LbZjFSCUm7l_7r7U6wDCWqS9w3qzGVqCrQTDti9R3M                                                                                                                                                                                 
+| INFO:     192.168.65.1:18259 - "GET /api/academia/all_students?skip=0&limit=5 HTTP/1.1" 307 Temporary Redirect
+| INFO:     192.168.65.1:18259 - "OPTIONS /api/academia/all_students/?skip=0&limit=5 HTTP/1.1" 200 OK                                                                                                      
+| INFO:sqlalchemy.engine.Engine:BEGIN (implicit)                                                                                                                                                           
+| INFO:sqlalchemy.engine.Engine:SELECT "Studenti".id AS "Studenti_id", "Studenti".nume AS "Studenti_nume", "Studenti".prenume AS "Studenti_prenume", "Studenti".email AS "Studenti_email", "Studenti".ciclu_studii AS "Studenti_ciclu_studii", "Studenti".an_studii AS "Studenti_an_studii", "Studenti".grupa AS "Studenti_grupa"                                                                                                 
+| FROM "Studenti" 
+|  LIMIT %(param_1)s OFFSET %(param_2)s                                                                                                                                                                    
+| INFO:sqlalchemy.engine.Engine:[cached since 132.2s ago] {'param_1': 5, 'param_2': 0}                                                                                                                     
+| INFO:sqlalchemy.engine.Engine:ROLLBACK
+ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoiYWRtaW46MSIsImV4cCI6MTczNzMzMTI4NywianRpIjoiYzJlZTAyMmQtMTFjOS00OGY3LWEyYzAtZDUwYjUxMDYyMmYyIiwicm9sZSI6ImFkbWluIn0.-LbZjFSCUm7l_7r7U6wDCWqS9w3qzGVqCrQTDti9R3M                                                                                                                                                                                 
+ INFO:     192.168.65.1:18259 - "GET /api/academia/all_students/?skip=0&limit=5 HTTP/1.1" 200 OK
+
+
+Asociere student la Disciplina
+
+ INFO:     192.168.65.1:17471 - "OPTIONS /api/academia/students/6/lectures?cod=AL01 HTTP/1.1" 200 OK
+ INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+ INFO:sqlalchemy.engine.Engine:SELECT "Studenti".id AS "Studenti_id", "Studenti".nume AS "Studenti_nume", "Studenti".prenume AS "Studenti_prenume", "Studenti".email AS "Studenti_email", "Studenti".ciclu_studii AS "Studenti_ciclu_studii", "Studenti".an_studii AS "Studenti_an_studii", "Studenti".grupa AS "Studenti_grupa"                                                                                                 
+ FROM "Studenti" 
+ WHERE "Studenti".id = %(id_1)s                                                                                                                                                                           
+  LIMIT %(param_1)s
+ INFO:sqlalchemy.engine.Engine:[cached since 207s ago] {'id_1': 6, 'param_1': 1}                                                                                                                          
+ INFO:sqlalchemy.engine.Engine:SELECT "Discipline_De_Studiu".cod AS "Discipline_De_Studiu_cod", "Discipline_De_Studiu".id_titular AS "Discipline_De_Studiu_id_titular", "Discipline_De_Studiu".nume_disciplina AS "Discipline_De_Studiu_nume_disciplina", "Discipline_De_Studiu".an_studiu AS "Discipline_De_Studiu_an_studiu", "Discipline_De_Studiu".tip_disciplina AS "Discipline_De_Studiu_tip_disciplina", "Discipline_De_Studiu".categorie_disciplina AS "Discipline_De_Studiu_categorie_disciplina", "Discipline_De_Studiu".tip_examinare AS "Discipline_De_Studiu_tip_examinare"
+ FROM "Discipline_De_Studiu" 
+ WHERE "Discipline_De_Studiu".cod = %(cod_1)s 
+  LIMIT %(param_1)s                                                                                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:[generated in 0.00025s] {'cod_1': 'AL01', 'param_1': 1}                                                                                                                    
+ INFO:sqlalchemy.engine.Engine:SELECT "Join_DS".student_id AS "Join_DS_student_id", "Join_DS".discipline_id AS "Join_DS_discipline_id"                                                                    
+ FROM "Join_DS" 
+ WHERE "Join_DS".student_id = %(student_id_1)s AND "Join_DS".discipline_id = %(discipline_id_1)s                                                                                                          
+  LIMIT %(param_1)s                                                                                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:[generated in 0.00028s] {'student_id_1': 6, 'discipline_id_1': 'AL01', 'param_1': 1}
+ INFO:sqlalchemy.engine.Engine:ROLLBACK                                                                                                                                                                   
+ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoiYWRtaW46MSIsImV4cCI6MTczNzMzMTI4NywianRpIjoiYzJlZTAyMmQtMTFjOS00OGY3LWEyYzAtZDUwYjUxMDYyMmYyIiwicm9sZSI6ImFkbWluIn0.-LbZjFSCUm7l_7r7U6wDCWqS9w3qzGVqCrQTDti9R3M   
+
+Afisare profesori cu afiliere
+ INFO:     192.168.65.1:26211 - "OPTIONS /api/academia/professors?skip=0&limit=5&acad_rank=asistent HTTP/1.1" 200 OK                                                                                      
+ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoiYWRtaW46MSIsImV4cCI6MTczNzMzMTI4NywianRpIjoiYzJlZTAyMmQtMTFjOS00OGY3LWEyYzAtZDUwYjUxMDYyMmYyIiwicm9sZSI6ImFkbWluIn0.-LbZjFSCUm7l_7r7U6wDCWqS9w3qzGVqCrQTDti9R3M                                                                                                                                                                                 
+ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoiYWRtaW46MSIsImV4cCI6MTczNzMzMTI4NywianRpIjoiYzJlZTAyMmQtMTFjOS00OGY3LWEyYzAtZDUwYjUxMDYyMmYyIiwicm9sZSI6ImFkbWluIn0.-LbZjFSCUm7l_7r7U6wDCWqS9w3qzGVqCrQTDti9R3M                                                                                                                                                                                 
+ INFO:     192.168.65.1:46973 - "GET /api/academia/professors?skip=0&limit=5&acad_rank=asistent HTTP/1.1" 307 Temporary Redirect
+ INFO:     192.168.65.1:46973 - "OPTIONS /api/academia/professors/?skip=0&limit=5&acad_rank=asistent HTTP/1.1" 200 OK                                                                                     
+ INFO:sqlalchemy.engine.Engine:BEGIN (implicit)                                                                                                                                                           
+ INFO:sqlalchemy.engine.Engine:SELECT "Cadre_Didactice".id AS "Cadre_Didactice_id", "Cadre_Didactice".nume AS "Cadre_Didactice_nume", "Cadre_Didactice".prenume AS "Cadre_Didactice_prenume", "Cadre_Didactice".email AS "Cadre_Didactice_email", "Cadre_Didactice".grad_didactic AS "Cadre_Didactice_grad_didactic", "Cadre_Didactice".tip_asociere AS "Cadre_Didactice_tip_asociere", "Cadre_Didactice".afiliere AS "Cadre_Didactice_afiliere"
+ FROM "Cadre_Didactice" 
+  LIMIT %(param_1)s OFFSET %(param_2)s                                                                                                                                                                    
+ INFO:sqlalchemy.engine.Engine:[cached since 4.849s ago] {'param_1': 5, 'param_2': 0}
+ INFO:sqlalchemy.engine.Engine:ROLLBACK                                                                                                                                                                   
+ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoiYWRtaW46MSIsImV4cCI6MTczNzMzMTI4NywianRpIjoiYzJlZTAyMmQtMTFjOS00OGY3LWEyYzAtZDUwYjUxMDYyMmYyIiwicm9sZSI6ImFkbWluIn0.-LbZjFSCUm7l_7r7U6wDCWqS9w3qzGVqCrQTDti9R3M                                                                                                                                                                                 
+ INFO:     192.168.65.1:26211 - "GET /api/academia/professors/?skip=0&limit=5 HTTP/1.1" 200 OK
+ INFO:sqlalchemy.engine.Engine:BEGIN (implicit)                                                                                                                                                           
+ INFO:sqlalchemy.engine.Engine:SELECT "Cadre_Didactice".id AS "Cadre_Didactice_id", "Cadre_Didactice".nume AS "Cadre_Didactice_nume", "Cadre_Didactice".prenume AS "Cadre_Didactice_prenume", "Cadre_Didactice".email AS "Cadre_Didactice_email", "Cadre_Didactice".grad_didactic AS "Cadre_Didactice_grad_didactic", "Cadre_Didactice".tip_asociere AS "Cadre_Didactice_tip_asociere", "Cadre_Didactice".afiliere AS "Cadre_Didactice_afiliere"
+ FROM "Cadre_Didactice" 
+ WHERE "Cadre_Didactice".grad_didactic = %(grad_didactic_1)s                                                                                                                                              
+ INFO:sqlalchemy.engine.Engine:[generated in 0.00038s] {'grad_didactic_1': 'asist'}                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:ROLLBACK
+ INFO:     192.168.65.1:46973 - "GET /api/academia/professors/?skip=0&limit=5&acad_rank=asistent HTTP/1.1" 200 OK   
+
+Afisare un profesor pe pagina
+ INFO:sqlalchemy.engine.Engine:BEGIN (implicit)                                                                                                                                                           
+ INFO:sqlalchemy.engine.Engine:SELECT "Cadre_Didactice".id AS "Cadre_Didactice_id", "Cadre_Didactice".nume AS "Cadre_Didactice_nume", "Cadre_Didactice".prenume AS "Cadre_Didactice_prenume", "Cadre_Didactice".email AS "Cadre_Didactice_email", "Cadre_Didactice".grad_didactic AS "Cadre_Didactice_grad_didactic", "Cadre_Didactice".tip_asociere AS "Cadre_Didactice_tip_asociere", "Cadre_Didactice".afiliere AS "Cadre_Didactice_afiliere"
+ FROM "Cadre_Didactice" 
+  LIMIT %(param_1)s OFFSET %(param_2)s
+ INFO:sqlalchemy.engine.Engine:[cached since 79.5s ago] {'param_1': 1, 'param_2': 0}                                                                                                                      
+ INFO:sqlalchemy.engine.Engine:ROLLBACK                                                                                                                                                                   
+ INFO:     192.168.65.1:46361 - "GET /api/academia/professors/?skip=0&limit=1 HTTP/1.1" 200 OK  
+
+Afisare discipline
+ INFO:     192.168.65.1:65237 - "GET /api/academia/lectures/?skip=0&limit=5 HTTP/1.1" 200 OK
+ INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+ INFO:sqlalchemy.engine.Engine:SELECT "Discipline_De_Studiu".cod AS "Discipline_De_Studiu_cod", "Discipline_De_Studiu".id_titular AS "Discipline_De_Studiu_id_titular", "Discipline_De_Studiu".nume_disciplina AS "Discipline_De_Studiu_nume_disciplina", "Discipline_De_Studiu".an_studiu AS "Discipline_De_Studiu_an_studiu", "Discipline_De_Studiu".tip_disciplina AS "Discipline_De_Studiu_tip_disciplina", "Discipline_De_Studiu".categorie_disciplina AS "Discipline_De_Studiu_categorie_disciplina", "Discipline_De_Studiu".tip_examinare AS "Discipline_De_Studiu_tip_examinare"
+ FROM "Discipline_De_Studiu" 
+  LIMIT %(param_1)s OFFSET %(param_2)s                                                                                                                                                                    
+ INFO:sqlalchemy.engine.Engine:[cached since 509s ago] {'param_1': 5, 'param_2': 0}                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:ROLLBACK
+ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoiYWRtaW46MSIsImV4cCI6MTczNzMzMTI4NywianRpIjoiYzJlZTAyMmQtMTFjOS00OGY3LWEyYzAtZDUwYjUxMDYyMmYyIiwicm9sZSI6ImFkbWluIn0.-LbZjFSCUm7l_7r7U6wDCWqS9w3qzGVqCrQTDti9R3M                                                                                                                                                                                 
+ INFO:     192.168.65.1:65237 - "GET /api/academia/lectures/?skip=0&limit=5 HTTP/1.1" 200 OK
+
+Adaugare disciplina:
+ INFO:     192.168.65.1:60199 - "POST /api/academia/lectures HTTP/1.1" 307 Temporary Redirect
+ INFO:     192.168.65.1:60199 - "OPTIONS /api/academia/lectures/ HTTP/1.1" 200 OK                                                                                                                         
+ INFO:sqlalchemy.engine.Engine:BEGIN (implicit)                                                                                                                                                           
+ INFO:sqlalchemy.engine.Engine:SELECT "Discipline_De_Studiu".cod AS "Discipline_De_Studiu_cod", "Discipline_De_Studiu".id_titular AS "Discipline_De_Studiu_id_titular", "Discipline_De_Studiu".nume_disciplina AS "Discipline_De_Studiu_nume_disciplina", "Discipline_De_Studiu".an_studiu AS "Discipline_De_Studiu_an_studiu", "Discipline_De_Studiu".tip_disciplina AS "Discipline_De_Studiu_tip_disciplina", "Discipline_De_Studiu".categorie_disciplina AS "Discipline_De_Studiu_categorie_disciplina", "Discipline_De_Studiu".tip_examinare AS "Discipline_De_Studiu_tip_examinare"
+ FROM "Discipline_De_Studiu" 
+ WHERE "Discipline_De_Studiu".cod = %(cod_1)s                                                                                                                                                             
+  LIMIT %(param_1)s                                                                                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:[cached since 253.9s ago] {'cod_1': 'AM01', 'param_1': 1}                                                                                                                  
+ INFO:sqlalchemy.engine.Engine:SELECT "Cadre_Didactice".id AS "Cadre_Didactice_id", "Cadre_Didactice".nume AS "Cadre_Didactice_nume", "Cadre_Didactice".prenume AS "Cadre_Didactice_prenume", "Cadre_Didactice".email AS "Cadre_Didactice_email", "Cadre_Didactice".grad_didactic AS "Cadre_Didactice_grad_didactic", "Cadre_Didactice".tip_asociere AS "Cadre_Didactice_tip_asociere", "Cadre_Didactice".afiliere AS "Cadre_Didactice_afiliere"
+ FROM "Cadre_Didactice" 
+ WHERE "Cadre_Didactice".id = %(id_1)s                                                                                                                                                                    
+  LIMIT %(param_1)s                                                                                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:[generated in 0.00023s] {'id_1': 2, 'param_1': 1}                                                                                                                          
+ INFO:sqlalchemy.engine.Engine:SELECT "Cadre_Didactice".id AS "Cadre_Didactice_id", "Cadre_Didactice".nume AS "Cadre_Didactice_nume", "Cadre_Didactice".prenume AS "Cadre_Didactice_prenume", "Cadre_Didactice".email AS "Cadre_Didactice_email", "Cadre_Didactice".grad_didactic AS "Cadre_Didactice_grad_didactic", "Cadre_Didactice".tip_asociere AS "Cadre_Didactice_tip_asociere", "Cadre_Didactice".afiliere AS "Cadre_Didactice_afiliere"
+ FROM "Cadre_Didactice" 
+ WHERE "Cadre_Didactice".id = %(id_1)s                                                                                                                                                                    
+  LIMIT %(param_1)s
+ INFO:sqlalchemy.engine.Engine:[cached since 0.001799s ago] {'id_1': 2, 'param_1': 1}                                                                                                                     
+ INFO:sqlalchemy.engine.Engine:INSERT INTO "Discipline_De_Studiu" (cod, id_titular, nume_disciplina, an_studiu, tip_disciplina, categorie_disciplina, tip_examinare) VALUES (%(cod)s, %(id_titular)s, %(nume_disciplina)s, %(an_studiu)s, %(tip_disciplina)s, %(categorie_disciplina)s, %(tip_examinare)s)                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:[generated in 0.00029s] {'cod': 'AM01', 'id_titular': 2, 'nume_disciplina': 'Analiza Matematica', 'an_studiu': 1, 'tip_disciplina': 'impusa', 'categorie_disciplina': 'specialitate', 'tip_examinare': 'examen'}
+ INFO:sqlalchemy.engine.Engine:COMMIT
+ INFO:sqlalchemy.engine.Engine:BEGIN (implicit)                                                                                                                                                           
+ INFO:sqlalchemy.engine.Engine:SELECT "Discipline_De_Studiu".cod, "Discipline_De_Studiu".id_titular, "Discipline_De_Studiu".nume_disciplina, "Discipline_De_Studiu".an_studiu, "Discipline_De_Studiu".tip_disciplina, "Discipline_De_Studiu".categorie_disciplina, "Discipline_De_Studiu".tip_examinare                                                                                                                          
+ FROM "Discipline_De_Studiu" 
+ WHERE "Discipline_De_Studiu".cod = %(pk_1)s
+ INFO:sqlalchemy.engine.Engine:[generated in 0.00022s] {'pk_1': 'AM01'}                                                                                                                                   
+ INFO:sqlalchemy.engine.Engine:ROLLBACK                                                                                                                                                                   
+ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoiYWRtaW46MSIsImV4cCI6MTczNzMzMTI4NywianRpIjoiYzJlZTAyMmQtMTFjOS00OGY3LWEyYzAtZDUwYjUxMDYyMmYyIiwicm9sZSI6ImFkbWluIn0.-LbZjFSCUm7l_7r7U6wDCWqS9w3qzGVqCrQTDti9R3M                                                                                                                                                                                 
+ INFO:     192.168.65.1:60199 - "POST /api/academia/lectures/ HTTP/1.1" 201 Created
+ INFO:     192.168.65.1:60199 - "OPTIONS /api/academia/lectures/?skip=0&limit=5 HTTP/1.1" 200 OK                                                                                                          
+ INFO:sqlalchemy.engine.Engine:BEGIN (implicit)                                                                                                                                                           
+ INFO:sqlalchemy.engine.Engine:SELECT "Discipline_De_Studiu".cod AS "Discipline_De_Studiu_cod", "Discipline_De_Studiu".id_titular AS "Discipline_De_Studiu_id_titular", "Discipline_De_Studiu".nume_disciplina AS "Discipline_De_Studiu_nume_disciplina", "Discipline_De_Studiu".an_studiu AS "Discipline_De_Studiu_an_studiu", "Discipline_De_Studiu".tip_disciplina AS "Discipline_De_Studiu_tip_disciplina", "Discipline_De_Studiu".categorie_disciplina AS "Discipline_De_Studiu_categorie_disciplina", "Discipline_De_Studiu".tip_examinare AS "Discipline_De_Studiu_tip_examinare"
+ FROM "Discipline_De_Studiu" 
+  LIMIT %(param_1)s OFFSET %(param_2)s                                                                                                                                                                    
+ INFO:sqlalchemy.engine.Engine:[cached since 578.7s ago] {'param_1': 5, 'param_2': 0}                                                                                                                     
+ INFO:sqlalchemy.engine.Engine:ROLLBACK                                                                                                                                                                   
+ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoiYWRtaW46MSIsImV4cCI6MTczNzMzMTI4NywianRpIjoiYzJlZTAyMmQtMTFjOS00OGY3LWEyYzAtZDUwYjUxMDYyMmYyIiwicm9sZSI6ImFkbWluIn0.-LbZjFSCUm7l_7r7U6wDCWqS9w3qzGVqCrQTDti9R3M                                                                                                                                                                                 
+ INFO:     192.168.65.1:60199 - "GET /api/academia/lectures/?skip=0&limit=5 HTTP/1.1" 200 OK
+
+Student
+
+Accesare informatii:
+ INFO:     192.168.65.1:58611 - "OPTIONS /api/academia/students/student10%40exemple.com HTTP/1.1" 200 OK
+ INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+ INFO:sqlalchemy.engine.Engine:SELECT "Studenti".id AS "Studenti_id", "Studenti".nume AS "Studenti_nume", "Studenti".prenume AS "Studenti_prenume", "Studenti".email AS "Studenti_email", "Studenti".ciclu_studii AS "Studenti_ciclu_studii", "Studenti".an_studii AS "Studenti_an_studii", "Studenti".grupa AS "Studenti_grupa"                                                                                                 
+ FROM "Studenti" 
+ WHERE "Studenti".email = %(email_1)s                                                                                                                                                                     
+  LIMIT %(param_1)s                                                                                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:[cached since 644.1s ago] {'email_1': 'student10@exemple.com', 'param_1': 1}
+ INFO:sqlalchemy.engine.Engine:ROLLBACK                                                                                                                                                                   
+ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoic3R1ZGVudDEwQGV4ZW1wbGUuY29tOjUwIiwiZXhwIjoxNzM3MzMxOTQxLCJqdGkiOiJmMWFiMzViMS1lOGY2LTQ4MjgtYjZkYS0yNmQzMDU3MzMxNDEiLCJyb2xlIjoic3R1ZGVudCJ9.acAF0ADv6z1pXGwm4SZMnvFnGKgLFu66xDlJ2HQOB9w                                                                                                                                                        
+ INFO:     192.168.65.1:58611 - "GET /api/academia/students/student10%40exemple.com HTTP/1.1" 200 OK
+
+Afisare discipline la care este asociat:
+ INFO:     192.168.65.1:39432 - "OPTIONS /api/academia/students/25/lectures HTTP/1.1" 200 OK
+ INFO:sqlalchemy.engine.Engine:BEGIN (implicit)                                                                                                                                                           
+ INFO:sqlalchemy.engine.Engine:SELECT "Studenti".id AS "Studenti_id", "Studenti".nume AS "Studenti_nume", "Studenti".prenume AS "Studenti_prenume", "Studenti".email AS "Studenti_email", "Studenti".ciclu_studii AS "Studenti_ciclu_studii", "Studenti".an_studii AS "Studenti_an_studii", "Studenti".grupa AS "Studenti_grupa"                                                                                                 
+ FROM "Studenti" 
+ WHERE "Studenti".id = %(id_1)s 
+  LIMIT %(param_1)s                                                                                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:[cached since 675.4s ago] {'id_1': 25, 'param_1': 1}                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:SELECT "Studenti".id AS "Studenti_id", "Studenti".nume AS "Studenti_nume", "Studenti".prenume AS "Studenti_prenume", "Studenti".email AS "Studenti_email", "Studenti".ciclu_studii AS "Studenti_ciclu_studii", "Studenti".an_studii AS "Studenti_an_studii", "Studenti".grupa AS "Studenti_grupa"                                                                                                 
+ FROM "Studenti" 
+ WHERE "Studenti".id = %(id_1)s                                                                                                                                                                           
+  LIMIT %(param_1)s
+ INFO:sqlalchemy.engine.Engine:[cached since 675.4s ago] {'id_1': 25, 'param_1': 1}                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:SELECT "Discipline_De_Studiu".cod AS "Discipline_De_Studiu_cod", "Discipline_De_Studiu".id_titular AS "Discipline_De_Studiu_id_titular", "Discipline_De_Studiu".nume_disciplina AS "Discipline_De_Studiu_nume_disciplina", "Discipline_De_Studiu".an_studiu AS "Discipline_De_Studiu_an_studiu", "Discipline_De_Studiu".tip_disciplina AS "Discipline_De_Studiu_tip_disciplina", "Discipline_De_Studiu".categorie_disciplina AS "Discipline_De_Studiu_categorie_disciplina", "Discipline_De_Studiu".tip_examinare AS "Discipline_De_Studiu_tip_examinare"
+ FROM "Discipline_De_Studiu" JOIN "Join_DS" ON "Discipline_De_Studiu".cod = "Join_DS".discipline_id 
+ WHERE "Join_DS".student_id = %(student_id_1)s                                                                                                                                                            
+ INFO:sqlalchemy.engine.Engine:[generated in 0.00056s] {'student_id_1': 25}                                                                                                                               
+ INFO:sqlalchemy.engine.Engine:ROLLBACK
+ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoic3R1ZGVudDEwQGV4ZW1wbGUuY29tOjUwIiwiZXhwIjoxNzM3MzMxOTQxLCJqdGkiOiJmMWFiMzViMS1lOGY2LTQ4MjgtYjZkYS0yNmQzMDU3MzMxNDEiLCJyb2xlIjoic3R1ZGVudCJ9.acAF0ADv6z1pXGwm4SZMnvFnGKgLFu66xDlJ2HQOB9w                                                                                                                                                        
+ INFO:     192.168.65.1:39432 - "GET /api/academia/students/25/lectures HTTP/1.1" 200 OK
+
+Afisare materiale laborator:
+ INFO:     192.168.65.1:39432 - "GET /api/academia/students/25/lectures HTTP/1.1" 200 OK
+ INFO:     192.168.65.1:34098 - "OPTIONS /api/academia/professors/2/lectures/AL01/materiale_laborator HTTP/1.1" 200 OK                                                                                    
+ INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+ INFO:sqlalchemy.engine.Engine:SELECT "Cadre_Didactice".id AS "Cadre_Didactice_id", "Cadre_Didactice".nume AS "Cadre_Didactice_nume", "Cadre_Didactice".prenume AS "Cadre_Didactice_prenume", "Cadre_Didactice".email AS "Cadre_Didactice_email", "Cadre_Didactice".grad_didactic AS "Cadre_Didactice_grad_didactic", "Cadre_Didactice".tip_asociere AS "Cadre_Didactice_tip_asociere", "Cadre_Didactice".afiliere AS "Cadre_Didactice_afiliere"
+ FROM "Cadre_Didactice" 
+ WHERE "Cadre_Didactice".id = %(id_1)s                                                                                                                                                                    
+  LIMIT %(param_1)s                                                                                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:[cached since 245.8s ago] {'id_1': 2, 'param_1': 1}
+ INFO:sqlalchemy.engine.Engine:SELECT "Discipline_De_Studiu".cod AS "Discipline_De_Studiu_cod", "Discipline_De_Studiu".id_titular AS "Discipline_De_Studiu_id_titular", "Discipline_De_Studiu".nume_disciplina AS "Discipline_De_Studiu_nume_disciplina", "Discipline_De_Studiu".an_studiu AS "Discipline_De_Studiu_an_studiu", "Discipline_De_Studiu".tip_disciplina AS "Discipline_De_Studiu_tip_disciplina", "Discipline_De_Studiu".categorie_disciplina AS "Discipline_De_Studiu_categorie_disciplina", "Discipline_De_Studiu".tip_examinare AS "Discipline_De_Studiu_tip_examinare"
+ FROM "Discipline_De_Studiu" 
+ WHERE "Discipline_De_Studiu".cod = %(cod_1)s                                                                                                                                                             
+  LIMIT %(param_1)s                                                                                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:[cached since 499.8s ago] {'cod_1': 'AL01', 'param_1': 1}
+ INFO:sqlalchemy.engine.Engine:ROLLBACK                                                                                                                                                                   
+ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoic3R1ZGVudDEwQGV4ZW1wbGUuY29tOjUwIiwiZXhwIjoxNzM3MzMxOTQxLCJqdGkiOiJmMWFiMzViMS1lOGY2LTQ4MjgtYjZkYS0yNmQzMDU3MzMxNDEiLCJyb2xlIjoic3R1ZGVudCJ9.acAF0ADv6z1pXGwm4SZMnvFnGKgLFu66xDlJ2HQOB9w                                                                                                                                                        
+ INFO:     192.168.65.1:34098 - "GET /api/academia/professors/2/lectures/AL01/materiale_laborator HTTP/1.1" 200 OK
+
+
+Profesor
+
+Afisare discimpline proprii:
+ INFO:     192.168.65.1:39919 - "OPTIONS /api/academia/professors/2/lectures HTTP/1.1" 200 OK                                                                                                             
+ INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+ INFO:sqlalchemy.engine.Engine:SELECT "Cadre_Didactice".id AS "Cadre_Didactice_id", "Cadre_Didactice".nume AS "Cadre_Didactice_nume", "Cadre_Didactice".prenume AS "Cadre_Didactice_prenume", "Cadre_Didactice".email AS "Cadre_Didactice_email", "Cadre_Didactice".grad_didactic AS "Cadre_Didactice_grad_didactic", "Cadre_Didactice".tip_asociere AS "Cadre_Didactice_tip_asociere", "Cadre_Didactice".afiliere AS "Cadre_Didactice_afiliere"
+ FROM "Cadre_Didactice" 
+ WHERE "Cadre_Didactice".id = %(id_1)s                                                                                                                                                                    
+  LIMIT %(param_1)s                                                                                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:[cached since 339.9s ago] {'id_1': 2, 'param_1': 1}
+ INFO:sqlalchemy.engine.Engine:SELECT "Cadre_Didactice".id AS "Cadre_Didactice_id", "Cadre_Didactice".nume AS "Cadre_Didactice_nume", "Cadre_Didactice".prenume AS "Cadre_Didactice_prenume", "Cadre_Didactice".email AS "Cadre_Didactice_email", "Cadre_Didactice".grad_didactic AS "Cadre_Didactice_grad_didactic", "Cadre_Didactice".tip_asociere AS "Cadre_Didactice_tip_asociere", "Cadre_Didactice".afiliere AS "Cadre_Didactice_afiliere"
+ FROM "Cadre_Didactice" 
+ WHERE "Cadre_Didactice".id = %(id_1)s                                                                                                                                                                    
+  LIMIT %(param_1)s
+ INFO:sqlalchemy.engine.Engine:[cached since 339.9s ago] {'id_1': 2, 'param_1': 1}                                                                                                                        
+ INFO:sqlalchemy.engine.Engine:SELECT "Discipline_De_Studiu".cod AS "Discipline_De_Studiu_cod", "Discipline_De_Studiu".id_titular AS "Discipline_De_Studiu_id_titular", "Discipline_De_Studiu".nume_disciplina AS "Discipline_De_Studiu_nume_disciplina", "Discipline_De_Studiu".an_studiu AS "Discipline_De_Studiu_an_studiu", "Discipline_De_Studiu".tip_disciplina AS "Discipline_De_Studiu_tip_disciplina", "Discipline_De_Studiu".categorie_disciplina AS "Discipline_De_Studiu_categorie_disciplina", "Discipline_De_Studiu".tip_examinare AS "Discipline_De_Studiu_tip_examinare"
+ FROM "Discipline_De_Studiu" 
+ WHERE "Discipline_De_Studiu".id_titular = %(id_titular_1)s                                                                                                                                               
+ INFO:sqlalchemy.engine.Engine:[generated in 0.00017s] {'id_titular_1': 2}                                                                                                                                
+ INFO:sqlalchemy.engine.Engine:ROLLBACK                                                                                                                                                                   
+ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoibWFyaWFAZXhhbXBsZS5jb206NDAiLCJleHAiOjE3MzczMzIxNzMsImp0aSI6Ijg4NzczNjhmLWEwZWYtNDMyZS1iMmYyLTEzYTk1OTA3ZTUzMSIsInJvbGUiOiJwcm9mZXNvciJ9.LYKDZmm0YIRj9lKHPqtAEU_cxAOJE_nL_5UYK_JlVTs                                                                                                                                                            
+ INFO:     192.168.65.1:39919 - "GET /api/academia/professors/2/lectures HTTP/1.1" 200 OK
+
+Informatii personale:
+ INFO:     192.168.65.1:36121 - "GET /api/academia/professors/2/lectures HTTP/1.1" 200 OK
+ INFO:sqlalchemy.engine.Engine:BEGIN (implicit)                                                                                                                                                           
+ INFO:sqlalchemy.engine.Engine:SELECT "Cadre_Didactice".id AS "Cadre_Didactice_id", "Cadre_Didactice".nume AS "Cadre_Didactice_nume", "Cadre_Didactice".prenume AS "Cadre_Didactice_prenume", "Cadre_Didactice".email AS "Cadre_Didactice_email", "Cadre_Didactice".grad_didactic AS "Cadre_Didactice_grad_didactic", "Cadre_Didactice".tip_asociere AS "Cadre_Didactice_tip_asociere", "Cadre_Didactice".afiliere AS "Cadre_Didactice_afiliere"
+ FROM "Cadre_Didactice" 
+ WHERE "Cadre_Didactice".email = %(email_1)s                                                                                                                                                              
+  LIMIT %(param_1)s                                                                                                                                                                                       
+ INFO:sqlalchemy.engine.Engine:[cached since 121.6s ago] {'email_1': 'maria@example.com', 'param_1': 1}                                                                                                   
+ INFO:sqlalchemy.engine.Engine:ROLLBACK                                                                                                                                                                   
+ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJbOjpdOjUwMDUxIiwic3ViIjoibWFyaWFAZXhhbXBsZS5jb206NDAiLCJleHAiOjE3MzczMzIxNzMsImp0aSI6Ijg4NzczNjhmLWEwZWYtNDMyZS1iMmYyLTEzYTk1OTA3ZTUzMSIsInJvbGUiOiJwcm9mZXNvciJ9.LYKDZmm0YIRj9lKHPqtAEU_cxAOJE_nL_5UYK_JlVTs                                                                                                                                                            
+ INFO:     192.168.65.1:28300 - "GET /api/academia/professors/maria%40example.com HTTP/1.1" 200 OK

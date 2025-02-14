@@ -1,0 +1,1223 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "API Moodle",
+        "description": "API pentru gestionarea entitatilor academice: profesori, studenti si discipline",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/academia/professors/": {
+            "post": {
+                "summary": "Create Cadru Didactic",
+                "operationId": "create_cadru_didactic_api_academia_professors__post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Cadre_Didactice_Create"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cadre_Didactice"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/academia/professors/{id}": {
+            "get": {
+                "summary": "Read Cadru Didactic",
+                "operationId": "read_cadru_didactic_api_academia_professors__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cadre_Didactice"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Cadru Didactic",
+                "operationId": "delete_cadru_didactic_api_academia_professors__id__delete",
+                "parameters": [
+                    {
+                        "name": "id_cadru_didactic",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Id Cadru Didactic"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cadre_Didactice"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Cadru Didactic",
+                "operationId": "update_cadru_didactic_api_academia_professors__id__put",
+                "parameters": [
+                    {
+                        "name": "id_cadru_didactic",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Id Cadru Didactic"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Cadre_Didactice_Create"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Successful Response"
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/academia/proferssors/": {
+            "get": {
+                "summary": "Read Cadre Didactice",
+                "operationId": "read_cadre_didactice_api_academia_proferssors__get",
+                "parameters": [
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "title": "Skip"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 5,
+                            "title": "Limit"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Cadre_Didactice"
+                                    },
+                                    "title": "Response Read Cadre Didactice Api Academia Proferssors  Get"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/academia/professors": {
+            "get": {
+                "summary": "Get Professors",
+                "operationId": "get_professors_api_academia_professors_get",
+                "parameters": [
+                    {
+                        "name": "acad_rank",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ],
+                            "title": "Acad Rank"
+                        }
+                    },
+                    {
+                        "name": "affiliation",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ],
+                            "title": "Affiliation"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ],
+                            "title": "Name"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Cadre_Didactice"
+                                    },
+                                    "title": "Response Get Professors Api Academia Professors Get"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/academia/lectures/": {
+            "post": {
+                "summary": "Create Disciplina",
+                "operationId": "create_disciplina_api_academia_lectures__post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Discipline_De_Studiu"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Discipline_De_Studiu"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/academia/lectures/{cod}": {
+            "get": {
+                "summary": "Read Disciplina",
+                "operationId": "read_disciplina_api_academia_lectures__cod__get",
+                "parameters": [
+                    {
+                        "name": "cod",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Cod"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Discipline_De_Studiu"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Disciplina",
+                "operationId": "delete_disciplina_api_academia_lectures__cod__delete",
+                "parameters": [
+                    {
+                        "name": "cod",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Cod"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Discipline_De_Studiu"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Disciplina",
+                "operationId": "update_disciplina_api_academia_lectures__cod__put",
+                "parameters": [
+                    {
+                        "name": "cod",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Cod"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Discipline_De_Studiu_Create"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Successful Response"
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/academia/lectures": {
+            "get": {
+                "summary": "Read Discipline",
+                "operationId": "read_discipline_api_academia_lectures_get",
+                "parameters": [
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "title": "Skip"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10,
+                            "title": "Limit"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Discipline_De_Studiu"
+                                    },
+                                    "title": "Response Read Discipline Api Academia Lectures Get"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/academia/professors/{id}/lectures": {
+            "get": {
+                "summary": "Read Professor Lectures",
+                "operationId": "read_professor_lectures_api_academia_professors__id__lectures_get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Discipline_De_Studiu"
+                                    },
+                                    "title": "Response Read Professor Lectures Api Academia Professors  Id  Lectures Get"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/academia/students/{id}/lectures": {
+            "get": {
+                "summary": "Read Student Lectures",
+                "operationId": "read_student_lectures_api_academia_students__id__lectures_get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Discipline_De_Studiu"
+                                    },
+                                    "title": "Response Read Student Lectures Api Academia Students  Id  Lectures Get"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add Disciplina To Student",
+                "operationId": "add_disciplina_to_student_api_academia_students__id__lectures_post",
+                "parameters": [
+                    {
+                        "name": "id_student",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Id Student"
+                        }
+                    },
+                    {
+                        "name": "id_disciplina",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Id Disciplina"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Studenti"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/academia/students/{id}": {
+            "get": {
+                "summary": "Read Student",
+                "operationId": "read_student_api_academia_students__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Studenti"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/academia/students": {
+            "post": {
+                "summary": "Create Studenti",
+                "operationId": "create_studenti_api_academia_students_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Studenti_Create"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Studenti"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/students/{id}": {
+            "delete": {
+                "summary": "Delete Student",
+                "operationId": "delete_student_api_students__id__delete",
+                "parameters": [
+                    {
+                        "name": "id_student",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Id Student"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Studenti"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Student",
+                "operationId": "update_student_api_students__id__put",
+                "parameters": [
+                    {
+                        "name": "id_student",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Id Student"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Studenti_Create"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Successful Response"
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Cadre_Didactice": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "nume": {
+                        "type": "string",
+                        "title": "Nume"
+                    },
+                    "prenume": {
+                        "type": "string",
+                        "title": "Prenume"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "title": "Email"
+                    },
+                    "grad_didactic": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/GradDidacticEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "tip_asociere": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/TipAsociereEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "afiliere": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Afiliere"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "nume",
+                    "prenume",
+                    "email"
+                ],
+                "title": "Cadre_Didactice"
+            },
+            "Cadre_Didactice_Create": {
+                "properties": {
+                    "nume": {
+                        "type": "string",
+                        "title": "Nume"
+                    },
+                    "prenume": {
+                        "type": "string",
+                        "title": "Prenume"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "title": "Email"
+                    },
+                    "grad_didactic": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/GradDidacticEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "tip_asociere": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/TipAsociereEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "afiliere": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Afiliere"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "nume",
+                    "prenume",
+                    "email"
+                ],
+                "title": "Cadre_Didactice_Create"
+            },
+            "CategorieDisciplinaEnum": {
+                "type": "string",
+                "enum": [
+                    "domeniu",
+                    "specialitate",
+                    "adiacenta"
+                ],
+                "title": "CategorieDisciplinaEnum"
+            },
+            "CicluStudiiEnum": {
+                "type": "string",
+                "enum": [
+                    "licenta",
+                    "master"
+                ],
+                "title": "CicluStudiiEnum"
+            },
+            "Discipline_De_Studiu": {
+                "properties": {
+                    "cod": {
+                        "type": "string",
+                        "title": "Cod"
+                    },
+                    "id_titular": {
+                        "type": "integer",
+                        "title": "Id Titular"
+                    },
+                    "nume_disciplina": {
+                        "type": "string",
+                        "title": "Nume Disciplina"
+                    },
+                    "an_studiu": {
+                        "type": "integer",
+                        "title": "An Studiu"
+                    },
+                    "tip_disciplina": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/TipDisciplinaEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "categorie_disciplina": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/CategorieDisciplinaEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "tip_examinare": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/TipExaminareEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "cod",
+                    "id_titular",
+                    "nume_disciplina",
+                    "an_studiu"
+                ],
+                "title": "Discipline_De_Studiu"
+            },
+            "Discipline_De_Studiu_Create": {
+                "properties": {
+                    "cod": {
+                        "type": "string",
+                        "title": "Cod"
+                    },
+                    "id_titular": {
+                        "type": "integer",
+                        "title": "Id Titular"
+                    },
+                    "nume_disciplina": {
+                        "type": "string",
+                        "title": "Nume Disciplina"
+                    },
+                    "an_studiu": {
+                        "type": "integer",
+                        "title": "An Studiu"
+                    },
+                    "tip_disciplina": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/TipDisciplinaEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "categorie_disciplina": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/CategorieDisciplinaEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "tip_examinare": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/TipExaminareEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "cod",
+                    "id_titular",
+                    "nume_disciplina",
+                    "an_studiu"
+                ],
+                "title": "Discipline_De_Studiu_Create"
+            },
+            "GradDidacticEnum": {
+                "type": "string",
+                "enum": [
+                    "asistent",
+                    "sef_lucrari",
+                    "conferentiar",
+                    "profesor"
+                ],
+                "title": "GradDidacticEnum"
+            },
+            "HTTPValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+            },
+            "Studenti": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "nume": {
+                        "type": "string",
+                        "title": "Nume"
+                    },
+                    "prenume": {
+                        "type": "string",
+                        "title": "Prenume"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "title": "Email"
+                    },
+                    "ciclu_studii": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/CicluStudiiEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "an_studii": {
+                        "type": "integer",
+                        "title": "An Studii"
+                    },
+                    "grupa": {
+                        "type": "integer",
+                        "title": "Grupa"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "nume",
+                    "prenume",
+                    "email",
+                    "an_studii",
+                    "grupa"
+                ],
+                "title": "Studenti"
+            },
+            "Studenti_Create": {
+                "properties": {
+                    "nume": {
+                        "type": "string",
+                        "title": "Nume"
+                    },
+                    "prenume": {
+                        "type": "string",
+                        "title": "Prenume"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "title": "Email"
+                    },
+                    "ciclu_studii": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/CicluStudiiEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "an_studii": {
+                        "type": "integer",
+                        "title": "An Studii"
+                    },
+                    "grupa": {
+                        "type": "integer",
+                        "title": "Grupa"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "nume",
+                    "prenume",
+                    "email",
+                    "an_studii",
+                    "grupa"
+                ],
+                "title": "Studenti_Create"
+            },
+            "TipAsociereEnum": {
+                "type": "string",
+                "enum": [
+                    "titular",
+                    "asociere",
+                    "extern"
+                ],
+                "title": "TipAsociereEnum"
+            },
+            "TipDisciplinaEnum": {
+                "type": "string",
+                "enum": [
+                    "impusa",
+                    "optinala",
+                    "liber_aleasa"
+                ],
+                "title": "TipDisciplinaEnum"
+            },
+            "TipExaminareEnum": {
+                "type": "string",
+                "enum": [
+                    "examen",
+                    "colocviu"
+                ],
+                "title": "TipExaminareEnum"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            }
+        }
+    }
+}
