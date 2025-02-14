@@ -1,0 +1,34 @@
+
+services:
+  database:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin             
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports: 
+      - 5432:5432
+    networks:
+      - academia_network
+
+  web:
+    build: 
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+    links: 
+      - "database:postgres"
+    networks:
+      - academia_network
+volumes:
+  postgres_data:
+
+networks:
+  academia_network:
+    external: true
