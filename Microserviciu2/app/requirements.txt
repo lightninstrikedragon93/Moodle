@@ -1,0 +1,11 @@
+fastapi
+pymongo
+uvicorn
+pydantic
+asyncpg
+psycopg2-binary
+pydantic[email]
+httpx
+grpcio
+grpcio-tools
+pyjwt

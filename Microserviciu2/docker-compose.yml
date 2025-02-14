@@ -1,0 +1,36 @@
+
+services:
+  mongo:
+    image: mongo:5.0
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - academia_network
+
+
+  materiale:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: materiale
+    ports:
+      - "8001:8001"
+    depends_on:
+      - mongo
+    links: 
+      - "mongo:mongo"
+    environment:
+      MONGO_URI: mongodb://mongo:27017
+    networks:
+      - academia_network
+
+volumes:
+  mongo_data:
+
+networks:
+  academia_network:
+    external: true
+
