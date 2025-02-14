@@ -1,0 +1,152 @@
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary-blue: #2a5d8f; 
+  --primary-blue-dark: #204663;
+  --input-border: #ccc;
+  --input-focus-border: var(--primary-blue);
+  --button-hover: var(--primary-blue-dark);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px black;
+}
+
+
+label {
+  font-size: 16px;
+  color: var(--foreground);
+  margin-bottom: 8px;
+  margin-top: 10px;;
+  text-align: start;
+
+}
+
+input, select {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 200px;
+  box-sizing: border-box; 
+}
+
+select {
+  background-color: white;
+  color: var(--foreground);
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--primary-blue);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: auto;
+  max-width: 200px;
+}
+
+button:hover {
+  background-color: var(--primary-blue-dark);
+}
+
+button[type="button"] {
+  background-color: #ccc;
+}
+
+button[type="button"]:hover {
+  background-color: #888;
+}
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+button[type="submit"], button[type="button"] {
+  margin-top: 16px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+div{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+
+}
+table {
+  width: 100%; 
+  border-collapse: collapse; 
+  background-color: #fff; 
+}
+
+
+th {
+  background-color: #2a5d8f; 
+  color: white; 
+  padding: 12px; 
+  text-align: left; 
+  font-weight: bold; 
+  border-top-left-radius: 8px; 
+  border-top-right-radius: 8px; 
+}
+
+
+td {
+  padding: 12px; 
+  text-align: left; 
+  border-bottom: 1px solid #ddd; 
+}
+
+
+tr:nth-child(even) {
+  background-color: #f2f2f2; 
+}
+
+
+tr:hover {
+  background-color: #e2e2e2; 
+  cursor: pointer;
+}
+
+
+td:last-child {
+  text-align: center; 
+}
+
+.login-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12%;
+}
